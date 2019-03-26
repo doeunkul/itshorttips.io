@@ -1,0 +1,62 @@
+To install nodejs on ubuntu system, please follow the following steps: 
+Step 1: Add Node.js PPA
+Before installing the latest version of Node.js, you must add its PPA to Ubuntu… This repository is provided by the official package mainterner… To add the repository, run the commands below….
+
+sudo apt install curl
+
+There are two repositories you can install… one repository contains the latest Node.js packages and the other has the LTS or (Long Term Support) packages…. if you need the latest and greatest, then install the first repository…
+
+On the other hand, if you need a more stable and tested Node.js packages, then install the LTS repository….
+
+Then for the Latest release, add this PPA..
+
+curl -sL https://deb.nodesource.com/setup_10.x | sudo bash -
+
+To install the LTS release, use this PPA
+
+curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
+
+After that, you can now install latest version of Node.js from the particular repository you choose… If you add both repositories, the latest version of Node.js will be installed and not the LTS…
+
+Step 2: Install Node.js and NPM
+To install, run the commands below
+
+sudo apt install nodejs
+
+After installing, both Node.js and NPM modules should be installed and ready to use….
+
+You can use the commands below to view the version number installed….
+
+node -v
+npm -v
+To test whether the web server is properly installed, run the commands below to create a test file called http_server.js in your home folder…
+
+cd ~/
+nano http_server.js
+Then copy and paste the content below into the file and save….
+
+const http = require('http');
+
+const hostname = '127.0.0.1';
+const port = 3000;
+
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  res.end('Hello World\n');
+});
+
+server.listen(port, hostname, () => {
+  console.log(`Server running at http://${hostname}:${port}/`);
+});
+After that save the file and run the commands below to start the server….
+
+node http_server.js
+
+You should see an output that reads:
+
+Server running at http://127.0.0.1:3000/
+
+Now open your browser and browse to the server hostname or IP address followed by port 3000… and you should see a default page with Hello World
+
+http://localhost:3000
